@@ -1,15 +1,5 @@
 #include "cub3d.h"
 
-int ft_open(char *file_name)
-{
-	int fd;
-
-	fd = open(file_name, O_RDONLY);
-	if (fd < 0)
-		ft_error("file error\n");
-	return fd;
-}
-
 void parse(t_cube3d *cub3d, char *file_name)
 {
 	int fd;
@@ -17,7 +7,7 @@ void parse(t_cube3d *cub3d, char *file_name)
 	int j;
 	char *str;
 
-	fd = ft_open(file_name);
+	fd = ft_open(file_name, cub3d);
 	j = 0;
 	str = get_next_line(fd);
 	i = 0;
@@ -39,7 +29,7 @@ void ft_fill_matrix(char *file_name , t_cube3d *cub3d, int size, int skip)
 	int i;
 	int fd;
 
-	fd = ft_open(file_name);
+	fd = ft_open(file_name, cub3d), 
 	cub3d->map = malloc(sizeof(char *) * (size + 1));
 	while(skip >= 0)
 	{

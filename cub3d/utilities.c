@@ -1,4 +1,5 @@
 #include "cub3d.h"
+
 void free_struct(t_cube3d *cub3d)
 {
     if (cub3d->ea)
@@ -29,4 +30,28 @@ void    print_struct(t_cube3d cub3d)
         i++;
     }
     return;
+}
+
+void	ft_error_cube(char *str, t_cube3d *cub3d)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+	
+	exit(1);
+}
+
+int ft_open(char *file_name, t_cube3d *cub3d)
+{
+	int fd;
+
+	fd = open(file_name, O_RDONLY);
+	if (fd < 0)
+		ft_error_cube("file error\n", cub3d);
+	return fd;
 }

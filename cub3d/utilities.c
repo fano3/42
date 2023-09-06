@@ -29,6 +29,9 @@ void    print_struct(t_cube3d cub3d)
         printf("%s\n", cub3d.map[i]);
         i++;
     }
+    printf("%f\n", cub3d.player.x);
+    printf("%f\n", cub3d.player.y);
+    printf("%f\n", cub3d.player.a);
     return;
 }
 
@@ -42,7 +45,7 @@ void	ft_error_cube(char *str, t_cube3d *cub3d)
 		write(2, &str[i], 1);
 		i++;
 	}
-	
+	free_struct(cub3d);
 	exit(1);
 }
 
@@ -54,4 +57,12 @@ int ft_open(char *file_name, t_cube3d *cub3d)
 	if (fd < 0)
 		ft_error_cube("file error\n", cub3d);
 	return fd;
+}
+
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->ll + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
 }

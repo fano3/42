@@ -9,7 +9,7 @@ void ft_init(t_cube3d *cub3d)
     cub3d->cieling = -1;
     cub3d->map = NULL;
 }
-void    ft_init_mlx(t_cube3d *cub3d)
+void    ft_init_position(t_cube3d *cub3d)
 {
     int i;
     int j;

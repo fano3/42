@@ -1,14 +1,21 @@
 #include "cub3d.h"
 void ft_init(t_cube3d *cub3d)
 {
+    cub3d->w = 0;
+	cub3d->s = 0;
+	cub3d->a = 0;
+	cub3d->d = 0;
     cub3d->no = NULL;
     cub3d->we = NULL;
     cub3d->so = NULL;
     cub3d->ea = NULL;
     cub3d->floor = -1;
-    cub3d->cieling = -1;
+    cub3d->ceiling = -1;
     cub3d->map = NULL;
+    cub3d->tl = 0;   
+    cub3d->tr = 0;
 }
+
 void    ft_init_position(t_cube3d *cub3d)
 {
     int i;

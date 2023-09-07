@@ -54,7 +54,7 @@ void ft_fill_matrix(char *file_name , t_cube3d *cub3d, int size, int skip)
 
 int check(t_cube3d *cub3d)
 {
-	if (cub3d->cieling == -1 || cub3d->floor == -1)
+	if (cub3d->ceiling == -1 || cub3d->floor == -1)
 		return(0);
 	if (cub3d->ea == NULL || cub3d->no == NULL || cub3d->so == NULL || cub3d->we == NULL)
 		return(0);
@@ -77,7 +77,7 @@ void fill(t_cube3d *cub3d, char *str)
 	else if (!ft_strncmp(tmp[0], "EA", 2))
 		cub3d->ea = ft_strdup(tmp[1]);
 	else if (!ft_strncmp(tmp[0], "C", 1))
-		cub3d->cieling = ft_color(tmp[1]);
+		cub3d->ceiling = ft_color(tmp[1]);
 	else if (!ft_strncmp(tmp[0], "F", 1))
 		cub3d->floor = ft_color(tmp[1]);
 	ft_free_matrix((void **)tmp);

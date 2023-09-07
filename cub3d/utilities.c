@@ -22,7 +22,7 @@ void    print_struct(t_cube3d cub3d)
     printf("%s\n", cub3d.so);
     printf("%s\n", cub3d.ea);
     printf("%s\n", cub3d.we);
-    printf("%d\n", cub3d.cieling);
+    printf("%d\n", cub3d.ceiling);
     printf("%d\n", cub3d.floor);
     while (cub3d.map[i] != NULL)
     {

@@ -46,5 +46,24 @@ void    ft_init_position(t_cube3d *cub3d)
         }
         i++;
     }
-    
+}
+
+void	open_textures(t_cube3d *cub3d)
+{
+	cub3d->tex[0].img = mlx_xpm_file_to_image(cub3d->mlx_ptr, cub3d->no,
+			&cub3d->tex[0].w, &cub3d->tex[0].h);
+	cub3d->tex[0].addr = mlx_get_data_addr(cub3d->tex[0].img,
+			&cub3d->tex[0].bpp, &cub3d->tex[0].ll, &cub3d->tex[0].endian);
+	cub3d->tex[1].img = mlx_xpm_file_to_image(cub3d->mlx_ptr, cub3d->so,
+			&cub3d->tex[1].w, &cub3d->tex[1].h);
+	cub3d->tex[1].addr = mlx_get_data_addr(cub3d->tex[1].img,
+			&cub3d->tex[1].bpp, &cub3d->tex[1].ll, &cub3d->tex[1].endian);
+	cub3d->tex[2].img = mlx_xpm_file_to_image(cub3d->mlx_ptr, cub3d->we,
+			&cub3d->tex[2].w, &cub3d->tex[2].h);
+	cub3d->tex[2].addr = mlx_get_data_addr(cub3d->tex[2].img,
+			&cub3d->tex[2].bpp, &cub3d->tex[2].ll, &cub3d->tex[2].endian);
+	cub3d->tex[3].img = mlx_xpm_file_to_image(cub3d->mlx_ptr, cub3d->ea,
+			&cub3d->tex[3].w, &cub3d->tex[3].h);
+	cub3d->tex[3].addr = mlx_get_data_addr(cub3d->tex[3].img,
+			&cub3d->tex[3].bpp, &cub3d->tex[3].ll, &cub3d->tex[3].endian);
 }

@@ -20,8 +20,8 @@
 
 #define RAD 0.0174533
 
-#define SENSIBILITY 6
-#define SPEED 0.2
+#define SENSIBILITY 4
+#define SPEED 0.1
 
 # define W 119
 # define A 97
@@ -67,12 +67,13 @@ typedef struct	s_cube3d
 	int	tl;
 	int	tr;
 
+	int			orien[(int) SCR_WIDTH];
     float		wall_height[(int) SCR_WIDTH];
 	float		radius_lenght[(int) SCR_WIDTH];
 	char		**map;
 	void		*mlx_ptr;
 	void		*mlx_win;
-
+	t_img		tex[5];
 	t_img		img;
 	t_player	player;
 }				t_cube3d;
@@ -95,11 +96,12 @@ void ft_init_position(t_cube3d *cub3d);
 void my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void    find_distance(t_cube3d *cub3d, float kurt_angle, int x);
 void    fan_radius(t_cube3d *cub3d);
-void    draw_walls(t_cube3d *cub3d, int x);
+void    draw_walls(t_cube3d *cub3d);
 void    movement (t_cube3d *cub3d);
 int	key_on(int keycode, t_cube3d *cub3d);
 int	key_off(int keycode, t_cube3d *cub3d);
 void	do_movement(t_cube3d *cub3d, float angle);
 void    movement(t_cube3d *cub3d);
-
+void	open_textures(t_cube3d *cub3d);
+void	find_orient(t_cube3d *cub3d, float kurt_angle, float distance, int i);
 #endif
